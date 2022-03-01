@@ -184,9 +184,8 @@ class _ScrollAppBarState extends State<ScrollAppBar> {
   Widget _elevation(double heightFactor, Widget? child) {
     return Material(
       elevation: elevation ?? 4.0,
-      type: widget.materialType != null
-          ? widget.materialType!
-          : MaterialType.canvas,
+      borderRadius: widget.borderRadius,
+      type: widget.materialType ?? MaterialType.canvas,
       child: _decoratedContainer(heightFactor, child),
     );
   }
