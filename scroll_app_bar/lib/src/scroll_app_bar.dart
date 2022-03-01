@@ -16,6 +16,7 @@ class ScrollAppBar extends StatefulWidget with PreferredSizeWidget {
       this.elevation,
       this.shadowColor,
       this.shape,
+      this.borderRadius,
       this.backgroundColor,
       this.foregroundColor,
       this.backgroundGradient,
@@ -60,6 +61,8 @@ class ScrollAppBar extends StatefulWidget with PreferredSizeWidget {
   final Color? shadowColor;
 
   final ShapeBorder? shape;
+
+  final BorderRadiusGeometry? borderRadius;
 
   final Color? backgroundColor;
 
@@ -193,7 +196,7 @@ class _ScrollAppBarState extends State<ScrollAppBar> {
       decoration: BoxDecoration(
         color: backgroundColor,
         gradient: widget.backgroundGradient,
-        shape: widget.shape,
+        borderRadius: widget.borderRadius,
       ),
       child: _opacity(heightFactor, child),
     );
