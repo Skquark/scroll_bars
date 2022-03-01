@@ -193,6 +193,7 @@ class _ScrollAppBarState extends State<ScrollAppBar> {
       decoration: BoxDecoration(
         color: backgroundColor,
         gradient: widget.backgroundGradient,
+        shape: widget.shape,
       ),
       child: _opacity(heightFactor, child),
     );
