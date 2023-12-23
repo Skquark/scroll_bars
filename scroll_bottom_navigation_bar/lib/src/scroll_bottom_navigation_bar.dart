@@ -36,10 +36,6 @@ class ScrollBottomNavigationBar extends StatefulWidget {
         assert(0 <= currentIndex && currentIndex < items.length),
         assert(elevation == null || elevation >= 0.0),
         assert(iconSize >= 0.0),
-        assert(
-          selectedItemColor == null || fixedColor == null,
-          'Either selectedItemColor or fixedColor can be specified, but not both',
-        ),
         assert(selectedFontSize >= 0.0),
         assert(unselectedFontSize >= 0.0),
         selectedItemColor = selectedItemColor ?? fixedColor,
@@ -150,7 +146,10 @@ class _ScrollBottomNavigationBarState extends State<ScrollBottomNavigationBar> {
   Widget _tab(BuildContext context, int index, Widget? child) {
     bottomNavigationBar = BottomNavigationBar(
       items: widget.items,
-      onTap: widget.controller.bottomNavigationBar.setTab,
+      onTap: (index) {
+        widget.controller.bottomNavigationBar.setTab(index);
+        widget.onTap!(index);
+      },
       currentIndex: index,
       elevation: 0.0,
       type: widget.type,
@@ -211,6 +210,7 @@ class _ScrollBottomNavigationBarState extends State<ScrollBottomNavigationBar> {
   Widget _decoratedContainer(double heightFactor) {
     return Container(
       height: widget.controller.bottomNavigationBar.height,
+      width: double.infinity,
       decoration: BoxDecoration(
         color: backgroundColor,
         gradient: widget.backgroundGradient,
