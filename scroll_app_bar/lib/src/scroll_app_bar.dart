@@ -32,7 +32,6 @@ class ScrollAppBar extends StatefulWidget implements PreferredSizeWidget {
       this.bottomOpacity = 1.0,
       this.toolbarHeight,
       this.leadingWidth,
-      this.backwardsCompatibility,
       this.toolbarTextStyle,
       this.titleTextStyle,
       this.systemOverlayStyle,
@@ -97,8 +96,6 @@ class ScrollAppBar extends StatefulWidget implements PreferredSizeWidget {
 
   final double? leadingWidth;
 
-  final bool? backwardsCompatibility;
-
   final TextStyle? toolbarTextStyle;
 
   final TextStyle? titleTextStyle;
@@ -142,21 +139,13 @@ class _ScrollAppBarState extends State<ScrollAppBar> {
     final ColorScheme colorScheme = theme.colorScheme;
     final AppBarTheme appBarTheme = AppBarTheme.of(context);
 
-    final bool backwardsCompatibility = widget.backwardsCompatibility ??
-        appBarTheme.backwardsCompatibility ??
-        true;
-
     elevation = widget.elevation ?? appBarTheme.elevation ?? 4.0;
 
-    backgroundColor = backwardsCompatibility
-        ? widget.backgroundColor ??
-            appBarTheme.backgroundColor ??
-            theme.primaryColor
-        : widget.backgroundColor ??
-            appBarTheme.backgroundColor ??
-            (colorScheme.brightness == Brightness.dark
-                ? colorScheme.surface
-                : colorScheme.primary);
+    backgroundColor = widget.backgroundColor ??
+        appBarTheme.backgroundColor ??
+        (colorScheme.brightness == Brightness.dark
+            ? colorScheme.surface
+            : colorScheme.primary);
   }
 
   Widget _pin(BuildContext context, bool isPinned, Widget? child) {
@@ -237,7 +226,6 @@ class _ScrollAppBarState extends State<ScrollAppBar> {
       bottomOpacity: widget.bottomOpacity,
       toolbarHeight: widget.toolbarHeight,
       leadingWidth: widget.leadingWidth,
-      backwardsCompatibility: widget.backwardsCompatibility,
       toolbarTextStyle: widget.toolbarTextStyle,
       titleTextStyle: widget.titleTextStyle,
       systemOverlayStyle: widget.systemOverlayStyle,
