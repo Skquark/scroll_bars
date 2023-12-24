@@ -23,7 +23,6 @@ class ScrollAppBar extends StatefulWidget implements PreferredSizeWidget {
       this.brightness,
       this.iconTheme,
       this.actionsIconTheme,
-      this.titleTextStyle,
       this.primary = true,
       this.centerTitle,
       this.excludeHeaderSemantics = false,
@@ -74,8 +73,6 @@ class ScrollAppBar extends StatefulWidget implements PreferredSizeWidget {
   final IconThemeData? iconTheme;
 
   final IconThemeData? actionsIconTheme;
-
-  final TextStyle? titleTextStyle;
 
   final bool primary;
 
@@ -216,7 +213,6 @@ class _ScrollAppBarState extends State<ScrollAppBar> {
       foregroundColor: widget.foregroundColor,
       iconTheme: widget.iconTheme,
       actionsIconTheme: widget.actionsIconTheme,
-      titleTextStyle: widget.titleTextStyle,
       primary: widget.primary,
       centerTitle: widget.centerTitle,
       excludeHeaderSemantics: widget.excludeHeaderSemantics,
