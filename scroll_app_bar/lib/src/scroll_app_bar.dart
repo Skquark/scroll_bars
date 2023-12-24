@@ -214,7 +214,6 @@ class _ScrollAppBarState extends State<ScrollAppBar> {
       shape: widget.shape,
       backgroundColor: Colors.transparent,
       foregroundColor: widget.foregroundColor,
-      brightness: widget.brightness,
       iconTheme: widget.iconTheme,
       actionsIconTheme: widget.actionsIconTheme,
       textTheme: widget.textTheme,
